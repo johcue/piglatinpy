@@ -27,3 +27,8 @@ class TestPigLatinTranslator(TestCase):
         translator = PigLatinTranslator("umbrela")
         translation = translator.translate()
         self.assertEqual("umbrelayay", translation)
+
+    def test_transalte_phrase_starts_vowel_i_ends_vowel_e(self):
+        translator = PigLatinTranslator("incruse")
+        translation = translator.translate()
+        self.assertEqual("incruseyay", translation)
