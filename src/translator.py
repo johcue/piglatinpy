@@ -26,3 +26,4 @@ class PigLatinTranslator:
         if self.phrase == "":
             return "nil"
         return "anyny"
+
