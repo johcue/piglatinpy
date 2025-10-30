@@ -1,5 +1,8 @@
+##Game PigLatin: https://github.com/katiaperchet/piglatinpy-ES-Example/commits?author=katiaperchet
+
 from src.error import PigLatinError
 VOWELS = "aeiou"
+CONSONANTS = "bcdfghjklmnpqrstvwxz"
 
 class PigLatinTranslator:
 
