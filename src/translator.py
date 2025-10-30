@@ -29,10 +29,17 @@ class PigLatinTranslator:
         """
         if self.phrase == "":
             return "nil"
-        words = self.phrase.split()
+        word = ""
         translation = ""
-        for word in words:
-            translation += PigLatinTranslator.translate_word(word) + " "
+        for i, char in enumerate(self.phrase):
+            if char == " " or  char == "-":
+                translation += PigLatinTranslator.translate_word(word) + char
+                word = ""
+            elif i == len(self.phrase) - 1 :
+                word += char
+                translation += PigLatinTranslator.translate_word(word)
+            else:
+                word += char
         return translation.rstrip()
 
     @staticmethod
