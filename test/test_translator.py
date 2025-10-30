@@ -52,3 +52,8 @@ class TestPigLatinTranslator(TestCase):
         translator = PigLatinTranslator("known")
         translation = translator.translate()
         self.assertEqual("ownknay", translation)
+
+    def test_transalte_phrase_starts_more_than_2_consonants_spring(self):
+        translator = PigLatinTranslator("spring")
+        translation = translator.translate()
+        self.assertEqual("ingspray", translation)
