@@ -1,4 +1,5 @@
 ##Game PigLatin: https://github.com/katiaperchet/piglatinpy-ES-Example/commits?author=katiaperchet
+from gettext import translation
 
 from src.error import PigLatinError
 VOWELS = "aeiou"
@@ -28,14 +29,23 @@ class PigLatinTranslator:
         """
         if self.phrase == "":
             return "nil"
-        first_letter = self.phrase[0]
-        if first_letter in VOWELS:
-            return PigLatinTranslator.translate_word_starting_with_vowel(self.phrase)
-        elif first_letter in CONSONANTS:
-            return PigLatinTranslator.transalte_word_starts_consonant(self.phrase)
+        words = self.phrase.split()
+        translation = ""
+        for word in words:
+            translation += PigLatinTranslator.translate_word(word) + " "
+        return translation.rstrip()
 
     @staticmethod
-    def transalte_word_starts_consonant(word):
+    def translate_word(word:str) -> str:
+        first_letter = word[0]
+        if first_letter in VOWELS:
+            return PigLatinTranslator.translate_word_starting_with_vowel(word)
+        elif first_letter in CONSONANTS:
+            return PigLatinTranslator.translate_word_starts_consonant(word)
+
+
+    @staticmethod
+    def translate_word_starts_consonant(word):
         n_consonants = 0
         for letter in word:
             if letter in CONSONANTS:
