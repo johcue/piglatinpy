@@ -4,6 +4,7 @@ from gettext import translation
 from src.error import PigLatinError
 VOWELS = "aeiou"
 CONSONANTS = "bcdfghjklmnpqrstvwxyz"
+PUNCTUATIONS = ".,;:?!()"
 
 class PigLatinTranslator:
 
@@ -32,7 +33,7 @@ class PigLatinTranslator:
         word = ""
         translation = ""
         for i, char in enumerate(self.phrase):
-            if char == " " or  char == "-":
+            if char == " " or  char == "-" or char in PUNCTUATIONS:
                 translation += PigLatinTranslator.translate_word(word) + char
                 word = ""
             elif i == len(self.phrase) - 1 :
