@@ -2,7 +2,7 @@
 
 from src.error import PigLatinError
 VOWELS = "aeiou"
-CONSONANTS = "bcdfghjklmnpqrstvwxz"
+CONSONANTS = "bcdfghjklmnpqrstvwxyz"
 
 class PigLatinTranslator:
 
@@ -32,6 +32,9 @@ class PigLatinTranslator:
         last_letter = self.phrase[-1]
         if first_letter in VOWELS:
             return PigLatinTranslator.translate_word_starting_with_vowel(self.phrase)
+        elif first_letter in CONSONANTS:
+            substring = self.phrase[1:]
+            return substring+first_letter + "ay"
 
     @staticmethod
     def translate_word_starting_with_vowel(word):
