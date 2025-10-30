@@ -88,4 +88,8 @@ class TestPigLatinTranslator(TestCase):
         translation = translator.translate()
         self.assertEqual("ellohay orldway.", translation)
 
+    def test_translate_phrase_with_more_than_one_punctuation_mark(self):
+        translator = PigLatinTranslator("hello world.!")
+        translation = translator.translate()
+        self.assertEqual("ellohay orldway.!", translation)
 
